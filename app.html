@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+ <html>
+   <head>
+     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   </head>
+
+   <body class="#b0bec5 blue-grey lighten-4">
+    <nav>
+      <div class="nav-wrapper #37474f blue-grey darken-3">
+        <a href="#" class="brand-logo center">Fantasy Picker</a>
+      </div>
+    </nav>
+    <div class="container">
+       <div class="row">
+         <h2 class="center">Can't Make up your mind?</h2>
+         <h5 class="center">We'll decide for you!</h5>
+       </div>
+       <div class="row valign-wrapper">
+         <div class="col l5 m5 s12 center" id="left">
+           <img src="http://sports.cbsimg.net/images/football/nfl/players/170x170/1244486.png" alt="" class="circle responsive-img pic1" height="250px" width="250px">
+           <label for="player1Name" class="left labels">Player 1:</label>
+           <input type="text" id="player1Name"></input>
+         </div>
+         <div class="col l2 m2 s12 center">
+           <h4 class="valign">VS</h4>
+         </div>
+         <div class="col l5 m5 s12 center" id="right">
+           <img src="http://sports.cbsimg.net/images/football/nfl/players/170x170/1244486.png" alt="" class="circle responsive-img pic2" height="250px" width="250px">
+           <label for="player2Name" class="left labels">Player 2:</label>
+           <input type="text" id="player2Name"></input>
+         </div>
+      </div>
+      <div class="row" id="buttonRow">
+        <div class="col l5 offset-l5">
+          <a class="#37474f blue-grey darken-3 btn" id="getIt">Decide!</a>
+        </div>
+      </div>
+    </div>
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script src="js/main.js"></script>
+   </body>
+ </html>
