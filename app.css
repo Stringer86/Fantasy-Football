@@ -1,4 +1,4 @@
-.pic1 {
+/*.pic1 {
   border-radius: 85%;
   border: 1px solid black;
   background-color: black;
@@ -26,4 +26,14 @@ body {
 .column {
   width: 49%;
   display: inline-block;
+}*/
+
+.check {
+  color: green;
+  font-size: 50px;
+}
+
+.redX {
+  color: red;
+  font-size: 50px;
 }
