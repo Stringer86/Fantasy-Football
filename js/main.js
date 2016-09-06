@@ -16,7 +16,7 @@
        return;
     }
 
-    let $xhr = $.getJSON(`http://api.cbssports.com/fantasy/players/search?version=3.0&SPORT=football&response_format=json&name=${$search}`);
+    let $xhr = $.getJSON(`https://cors-anywhere.herokuapp.com/http://api.cbssports.com/fantasy/players/search?version=3.0&SPORT=football&response_format=json&name=${$search}`);
 
     $xhr.done(function(data) {
       if ($xhr.status !== 200) {
@@ -50,7 +50,7 @@
        return;
     }
 
-    let $xhr2 = $.getJSON(`http://api.cbssports.com/fantasy/players/search?version=3.0&SPORT=football&response_format=json&name=${$search2}`);
+    let $xhr2 = $.getJSON(`https://cors-anywhere.herokuapp.com/http://api.cbssports.com/fantasy/players/search?version=3.0&SPORT=football&response_format=json&name=${$search2}`);
 
     $xhr2.done(function(data) {
       if ($xhr2.status !== 200) {
@@ -65,6 +65,7 @@
       $player2.remove();
       $right.append(`<h5 class="name2">${fullName2}</h5>`);
       setTimeout(randomPick, 500); // setTimeout to solve race issue
+      setTimeout(otherLinks, 550);
       setTimeout(createReset, 600);
 
   });
@@ -81,16 +82,20 @@ function randomPick() {
   if (pick <= .499) {
     $left.append($greenCheck);
     $right.append($redX);
-    $container.append(`<div class="row"><div class="col l12 center"><h5>The results are in. Stop worrying and start ${$name1}!`);
+    $container.append(`<div class="row"><div class="col l12 center"><h5>The results are in. Stop worrying and start ${$name1}!</div></div>`);
   } else {
     $right.append($greenCheck);
     $left.append($redX);
-    $container.append(`<div class="row"><div class="col l12 center"><h5>The results are in. Stop worrying and start ${$name2}!`);
+    $container.append(`<div class="row"><div class="col l12 center"><h5>The results are in. Stop worrying and start ${$name2}!</div></div>`);
   }
 }
 
 function createReset() {
   $container.append(`<div class="row"><div class="col l6 offset-l5"><a class="#37474f blue-grey darken-3 btn" id="button2" onClick="window.location.reload()">New decision</a></div></div>`);
+}
+
+function otherLinks() {
+  $container.append(`<div class="row"><div class="col l12 center"><h5>For more "scientific" results try <a href="https://www.fantasypros.com/nfl/start/">here</a> or <a href="https://www.fantasysp.com/start-sit-tool/nfl">here</a>`);
 }
 
 
