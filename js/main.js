@@ -24,18 +24,18 @@
       }
 
       let photoURL = data.body.players[0].photo;
-      console.log(photoURL);
       let fullName = data.body.players[0].fullname;
+      let position = data.body.players[0].position;
       let $pic1 = $('.pic1');
       $pic1.attr("src", photoURL);
       $player1.remove();
       $labels.remove();
-      $left.append(`<h5 class="name1">${fullName}</h5>`);
+      $('.col s5').remove();
+      $left.append(`<h5 class="name1">${fullName}   , ${position}</h5>`);
       $button.remove();
 
       // let $button2 = $('#button2');
       // $button2.click
-
   });
 
 
@@ -60,13 +60,14 @@
       let photoURL2 = data.body.players[0].photo;
       console.log(photoURL2);
       let fullName2 = data.body.players[0].fullname;
+      let position2 = data.body.players[0].position;
       let $pic2 = $('.pic2');
       $pic2.attr("src", photoURL2);
       $player2.remove();
-      $right.append(`<h5 class="name2">${fullName2}</h5>`);
-      setTimeout(randomPick, 500); // setTimeout to solve race issue
-      setTimeout(otherLinks, 550);
-      setTimeout(createReset, 600);
+      $right.append(`<h5 class="name2">${fullName2} , ${position2}</h5>`);
+      randomPick(); // setTimeout to solve race issue
+      otherLinks();
+      createReset();
 
   });
 }
@@ -82,16 +83,16 @@ function randomPick() {
   if (pick <= .499) {
     $left.append($greenCheck);
     $right.append($redX);
-    $container.append(`<div class="row"><div class="col l12 center"><h5>The results are in. Stop worrying and start ${$name1}!</div></div>`);
+    $container.append(`<div class="row"><div class="col l12 center"><h5>Stop worrying and start ${$name1}!</div></div>`);
   } else {
     $right.append($greenCheck);
     $left.append($redX);
-    $container.append(`<div class="row"><div class="col l12 center"><h5>The results are in. Stop worrying and start ${$name2}!</div></div>`);
+    $container.append(`<div class="row"><div class="col l12 center"><h5>Stop worrying and start ${$name2}!</div></div>`);
   }
 }
 
 function createReset() {
-  $container.append(`<div class="row"><div class="col l6 offset-l5"><a class="#37474f blue-grey darken-3 btn" id="button2" onClick="window.location.reload()">New decision</a></div></div>`);
+  $container.append(`<div class="row"><div class="col l6 offset-l5"><a class="black btn" id="button2" onClick="window.location.reload()">New decision</a></div></div>`);
 }
 
 function otherLinks() {

@@ -37,3 +37,22 @@ body {
   color: red;
   font-size: 50px;
 }
+
+.autocomplete-content {
+  position: absolute;
+  width: 28%;
+}
+
+.whiteText {
+  color: white;
+}
+
+.container {
+  background-image: url("http://www.spyderonlines.com/images/wallpapers/football-background-images/football-background-images-4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#player1Name {
+  color: #dedddd;
+}
