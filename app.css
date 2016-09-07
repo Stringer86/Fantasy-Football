@@ -47,12 +47,29 @@ body {
   color: white;
 }
 
-.container {
-  background-image: url("http://www.spyderonlines.com/images/wallpapers/football-background-images/football-background-images-4.jpg");
+body {
+  height: 100vh;
+  width: 100vw;
+  background-image:
+      linear-gradient(
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3)
+    ),
+    url("http://www.spyderonlines.com/images/wallpapers/football-background-images/football-background-images-4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+
 }
 
-#player1Name {
+#player1Name,  #player2Name{
   color: #dedddd;
+}
+.playerName {
+  color: #dedddd;
+}
+h5 {
+  color: #dedddd;
+}
+h2, h3, h6 {
+  color: white;
 }

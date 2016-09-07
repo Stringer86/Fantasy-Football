@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   const $labels = $('.labels');
-  const $container = $('.container');
+  const $container = $('.bodyContainer');
   const $left = $('#left');
   const $right = $('#right');
 
@@ -65,9 +65,9 @@
       $pic2.attr("src", photoURL2);
       $player2.remove();
       $right.append(`<h5 class="name2">${fullName2} , ${position2}</h5>`);
-      randomPick(); // setTimeout to solve race issue
-      otherLinks();
-      createReset();
+      setTimeout(randomPick(), 200); // setTimeout to solve race issue
+      setTimeout(otherLinks(), 250);
+      setTimeout(createReset(), 300);
 
   });
 }
@@ -87,12 +87,12 @@ function randomPick() {
   } else {
     $right.append($greenCheck);
     $left.append($redX);
-    $container.append(`<div class="row"><div class="col l12 center"><h5>Stop worrying and start ${$name2}!</div></div>`);
+    $container.append(`<div class="col l12 center"><h5>Stop worrying and start ${$name2}!</div>`);
   }
 }
 
 function createReset() {
-  $container.append(`<div class="row"><div class="col l6 offset-l5"><a class="black btn" id="button2" onClick="window.location.reload()">New decision</a></div></div>`);
+  $container.append(`<div class="row"><div class="col l6 offset-l5"><a class="#1565c0 blue darken-3 btn" id="button2" onClick="window.location.reload()">New decision</a></div></div>`);
 }
 
 function otherLinks() {
