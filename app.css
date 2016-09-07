@@ -43,13 +43,10 @@ body {
   width: 28%;
 }
 
-.whiteText {
-  color: white;
-}
 
 body {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-image:
       linear-gradient(
         rgba(0, 0, 0, 0.3),
@@ -58,7 +55,23 @@ body {
     url("http://www.spyderonlines.com/images/wallpapers/football-background-images/football-background-images-4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 
+}
+main {
+    flex: 1 0 auto;
+  }
+.info {
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2)
+    );
+  text-shadow: 1px 1px 1px #000;
+}
+.brand-logo {
+  text-shadow: 1px 1px 1px #000;
 }
 
 #player1Name,  #player2Name{
@@ -72,4 +85,31 @@ h5 {
 }
 h2, h3, h6 {
   color: white;
+  text-shadow: 1px 1px 1px #000;
+}
+p {
+  color: white;
+}
+
+.brand-logo {
+  color: #941b2d;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+  color: #941b2d;
+}
+.toast {
+  background-color: #941b2d;
+}
+.side-nav {
+  background-image: url("http://images.covers.com/editorial/2010/383x165/nfl_flag092710.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-weight: bolder;
+}
+
+.side-nav a {
+  font-size: 33px;
+  padding-top: 20px;
+
 }
