@@ -5,6 +5,7 @@
     const $left = $('#left');
     const $right = $('#right');
     const $buttonlocation = $('.buttonLocation');
+    const $progress = $('<div class="progress"><div class="indeterminate"></div></div>');
 
     function getPhoto1() {
         let $player1 = $('#player1Name');
@@ -16,6 +17,7 @@
             Materialize.toast('Need Team 1!', 4000);
             return;
         }
+        $buttonlocation.append($progress);
 
         let $xhr = $.getJSON(`https://cors-anywhere.herokuapp.com/http://api.cbssports.com/fantasy/players/search?version=3.0&SPORT=football&response_format=json&name=${$search}`);
 
@@ -23,6 +25,7 @@
             if ($xhr.status !== 200) {
                 return;
             }
+            $progress.remove();
 
             let photoURL = data.body.players[0].photo;
             let fullName = data.body.players[0].fullname;
@@ -66,7 +69,7 @@
             $pic2.attr("src", photoURL2);
             $player2.remove();
             $right.append(`<h5 class="name2">${fullName2}</h5>`);
-            randomPick(); // setTimeout to solve race issue
+            randomPick();
             createReset();
 
         });
@@ -87,6 +90,8 @@
             $player2.text('\u2718');
             $buttonlocation.append(`<div class="col l12 center"><h5>Stop worrying and pick the ${$name1}!</div>`);
         } else {
+            let $name1 = $('.name1').html();
+            let $name2 = $('.name2').html();
             $player2.addClass("check");
             $player1.addClass("redX");
             $player2.text('\u2714');

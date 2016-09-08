@@ -5,15 +5,54 @@
     const $left = $('#left');
     const $right = $('#right');
     const $buttonlocation = $('.buttonLocation');
+    const $player1 = $('#player1');
+    const $player2 = $('#player2');
+    const $progress = $('<div class="progress"><div class="indeterminate"></div></div>');
+    const teamNames = ["Ravens",
+    "Bengals",
+    "Steelers",
+    "Bears",
+    "Lions",
+    "Packers",
+    "Vikings",
+    "Texans",
+    "Colts",
+    "Jaguars",
+    "Titans",
+    "Falcons",
+    "Panthers",
+    "Saints",
+    "Buccaneers",
+    "Bills",
+    "Dolphins",
+    "Patriots",
+    "Jets",
+    "Cowboys",
+    "Giants",
+    "Eagles",
+    "Redskins",
+    "Broncos",
+    "Chiefs",
+    "Raiders",
+    "Chargers",
+    "Cardinals",
+    "49ers",
+    "Seahawks",
+    "Rams",
+    "Browns" ];
 
     function getPhoto1() {
         let $player1 = $('#player1Name');
         let $search = $player1.val();
-
+        let $progress = $('<div class="progress"><div class="indeterminate"></div></div>');
         if ($search.length === 0) {
             Materialize.toast('Need Player 1!', 4000);
             return;
         }
+
+        $buttonlocation.append($progress);
+
+
 
         let $xhr = $.getJSON(`https://cors-anywhere.herokuapp.com/http://api.cbssports.com/fantasy/players/search?version=3.0&SPORT=football&response_format=json&name=${$search}`);
 
@@ -21,7 +60,7 @@
             if ($xhr.status !== 200) {
                 return;
             }
-            console.log("P1:", data);
+            $progress.remove();
             let photoURL = data.body.players[0].photo;
             let fullName = data.body.players[0].fullname;
             let position = data.body.players[0].position;
@@ -30,7 +69,11 @@
             $player1.remove();
             $labels.remove();
             $('.col s5').remove();
-            $left.append(`<h5 class="name1">${fullName}   , ${position}</h5>`);
+            if (teamNames.indexOf(fullName) !== -1) {
+              $left.append(`<h5 class="name1">${fullName}   , DST </h5>`);
+            } else {
+              $left.append(`<h5 class="name1">${fullName}   , ${position}</h5>`);
+            }
             $button.remove();
 
             // let $button2 = $('#button2');
@@ -62,7 +105,12 @@
             let $pic2 = $('.pic2');
             $pic2.attr("src", photoURL2);
             $player2.remove();
-            $right.append(`<h5 class="name2">${fullName2}, ${position2}</h5>`);
+
+            if (teamNames.indexOf(fullName2) !== -1) {
+              $right.append(`<h5 class="name2">${fullName2}   , DST </h5>`);
+            } else {
+              $right.append(`<h5 class="name2">${fullName2}   , ${position2}</h5>`);
+            }
             randomPick()
             otherLinks()
             createReset()
@@ -73,8 +121,6 @@
 
     function randomPick() {
         let pick = Math.random();
-        let $player1 = $('#player1');
-        let $player2 = $('#player2');
         let $name1 = $('.name1').text();
         let $name2 = $('.name2').text();
 
