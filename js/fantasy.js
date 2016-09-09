@@ -127,13 +127,13 @@
         if (pick <= .499) {
             $player1.addClass("check");
             $player2.addClass("redX");
-            $player1.text('\u2714');
+            $player1.text('\u2713');
             $player2.text('\u2718');
             $buttonlocation.append(`<div class="col l12 center"><h5>Stop worrying and start ${$name1}!</div>`);
         } else {
             $player2.addClass("check");
             $player1.addClass("redX");
-            $player2.text('\u2714');
+            $player2.text('\u2713');
             $player1.text('\u2718');
             $buttonlocation.append(`<div class="col l12 center"><h5>Stop worrying and start ${$name2}!</div>`);
         }

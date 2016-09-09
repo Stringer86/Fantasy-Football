@@ -7,8 +7,8 @@ body {
   width: 100%;
   background-image:
       linear-gradient(
-        rgba(0, 0, 0, 0.3),
-        rgba(0, 0, 0, 0.3)
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.2)
     ),
     url("Img/football-field.jpg");
   background-repeat: no-repeat;
@@ -33,6 +33,7 @@ p {
 .check {
   color: green;
   font-size: 50px;
+  font-weight: bolder;
 }
 
 .redX {
