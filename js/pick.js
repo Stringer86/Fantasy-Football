@@ -37,9 +37,6 @@
             $('.col s5').remove();
             $left.append(`<h5 class="name1">${fullName}</h5>`);
             $button.remove();
-
-            // let $button2 = $('#button2');
-            // $button2.click
         });
 
 
@@ -104,14 +101,7 @@
         $buttonlocation.append(`<a class="#1565c0 blue darken-4 btn" id="button2" onClick="window.location.reload()">New decision</a>`);
     }
 
-
-
-
     const $button = $('#getIt');
     $button.click(getPhoto1);
     $button.click(getPhoto2);
-
-
-
-
 })();
