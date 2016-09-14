@@ -1,0 +1,79 @@
+main {
+    flex: 1 0 auto;
+}
+body {
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../img/football-field.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+h5 {
+    color: #dedddd;
+}
+h2,
+h3,
+h6 {
+    color: white;
+    text-shadow: 1px 1px 1px #000;
+}
+p {
+    color: white;
+}
+.bodyContainer {
+  padding-top: 5%;
+}
+.check {
+    color: green;
+    font-size: 50px;
+    font-weight: bolder;
+}
+.redX {
+    color: red;
+    font-size: 50px;
+}
+.autocomplete-content {
+    position: absolute;
+    width: 28%;
+}
+.info {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    text-shadow: 1px 1px 1px #000;
+}
+.brand-logo {
+    text-shadow: 1px 1px 1px #000;
+}
+.playerName {
+    color: #dedddd;
+}
+.brand-logo {
+    color: #941b2d;
+}
+.dropdown-content li>a,
+.dropdown-content li>span {
+    color: #941b2d;
+}
+.toast {
+    background-color: #941b2d;
+}
+.side-nav {
+    background-image: url("http://images.covers.com/editorial/2010/383x165/nfl_flag092710.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-weight: bolder;
+}
+.side-nav a {
+    font-size: 33px;
+}
+.middle {
+    padding-top: 5%;
+}
+#player1Name,
+#player2Name,
+#team1,
+#team2 {
+    color: #dedddd;
+}

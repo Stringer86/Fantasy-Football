@@ -1,5 +1,6 @@
 $(document).ready(function() {
   'use strict';
+
   var data = {
     Ravens: null,
     Bengals: null,
@@ -34,9 +35,7 @@ $(document).ready(function() {
     Rams: null,
     Browns: null
   };
-
   $('input.autocomplete').autocomplete({
     data: data
-
   });
 });
