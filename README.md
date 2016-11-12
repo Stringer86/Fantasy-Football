@@ -17,6 +17,3 @@ This project uses the CBS sports api
 The most valuable piece of customer feedback was to make external links open in a new tab.  I also got some good advice about color schemes. For example, not going with the default toast color.
 
 This used jquery and materialize.
-
-
-The biggest challenge was trying to get the autocomplete to work.
