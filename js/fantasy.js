@@ -43,7 +43,7 @@
       "Browns"
     ];
 
-    function getPhoto1() {
+    function getResults() {
         let $player1 = $('#player1Name');
 
         let search = $player1.val();
@@ -83,48 +83,49 @@
               $left.append(`<h5 class="name1">${fullName}   , ${position}</h5>`);
             }
             $button.remove();
+            return;
+        })
+        .then(() => {
+          let $player2 = $('#player2Name');
+
+          let search2 = $player2.val();
+
+          if (search2.length === 0) {
+              Materialize.toast('Need player 2!', 4000);
+              return;
+          }
+
+          let $xhr2 = $.getJSON(`https://cors-anywhere.herokuapp.com/http://api.cbssports.com/fantasy/players/search?version=3.0&SPORT=football&response_format=json&name=${search2}`);
+
+          $xhr2.done(function(data) {
+              if ($xhr2.status !== 200) {
+                  return;
+              }
+              let photoURL2 = data.body.players[0].photo;
+
+              let fullName2 = data.body.players[0].fullname;
+
+              let position2 = data.body.players[0].position;
+
+              let $pic2 = $('.pic2');
+
+              $pic2.attr("src", photoURL2);
+              $player2.remove();
+
+              if (teamNames.indexOf(fullName2) !== -1) {
+                $right.append(`<h5 class="name2">${fullName2}   , DST </h5>`);
+              } else {
+                $right.append(`<h5 class="name2">${fullName2}   , ${position2}</h5>`);
+              }
+
+              randomPick();
+              otherLinks();
+              createReset();
         });
+});
 }
 
-    function getPhoto2() {
-        let $player2 = $('#player2Name');
 
-        let search2 = $player2.val();
-
-        if (search2.length === 0) {
-            Materialize.toast('Need player 2!', 4000);
-            return;
-        }
-
-        let $xhr2 = $.getJSON(`https://cors-anywhere.herokuapp.com/http://api.cbssports.com/fantasy/players/search?version=3.0&SPORT=football&response_format=json&name=${search2}`);
-
-        $xhr2.done(function(data) {
-            if ($xhr2.status !== 200) {
-                return;
-            }
-            console.log("P2:", data);
-            let photoURL2 = data.body.players[0].photo;
-
-            let fullName2 = data.body.players[0].fullname;
-
-            let position2 = data.body.players[0].position;
-
-            let $pic2 = $('.pic2');
-
-            $pic2.attr("src", photoURL2);
-            $player2.remove();
-
-            if (teamNames.indexOf(fullName2) !== -1) {
-              $right.append(`<h5 class="name2">${fullName2}   , DST </h5>`);
-            } else {
-              $right.append(`<h5 class="name2">${fullName2}   , ${position2}</h5>`);
-            }
-
-            randomPick();
-            otherLinks();
-            createReset();
-        });
-    }
 
     function randomPick() {
         let pick = Math.random();
@@ -157,6 +158,5 @@
     }
 
     const $button = $('#getIt');
-    $button.click(getPhoto1);
-    $button.click(getPhoto2);
+    $button.click(getResults);
 })();

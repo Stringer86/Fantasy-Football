@@ -7,7 +7,7 @@
     const $buttonlocation = $('.buttonLocation');
     const $progress = $('<div class="progress"><div class="indeterminate"></div></div>');
 
-    function getPhoto1() {
+    function getResults() {
         let $team1 = $('#team1');
 
         let search = $team1.val();
@@ -39,42 +39,43 @@
             $('.col s5').remove();
             $left.append(`<h5 class="name1">${fullName}</h5>`);
             $button.remove();
-        });
-    }
 
-    function getPhoto2() {
-
-        let $team2 = $('#team2');
-
-        let search2 = $team2.val();
-
-        if (search2.length === 0) {
-            Materialize.toast('Need Team 2!', 4000);
             return;
-        }
+        })
+        .then(() => {
+          let $team2 = $('#team2');
 
-        let $xhr2 = $.getJSON(`https://cors-anywhere.herokuapp.com/http://api.cbssports.com/fantasy/players/search?version=3.0&SPORT=football&response_format=json&name=${search2}`);
+          let search2 = $team2.val();
 
-        $xhr2.done(function(data) {
-            if ($xhr2.status !== 200) {
-                return;
-            }
+          if (search2.length === 0) {
+              Materialize.toast('Need Team 2!', 4000);
+              return;
+          }
 
-            let photoURL2 = data.body.players[0].photo;
+          let $xhr2 = $.getJSON(`https://cors-anywhere.herokuapp.com/http://api.cbssports.com/fantasy/players/search?version=3.0&SPORT=football&response_format=json&name=${search2}`);
 
-            let fullName2 = data.body.players[0].fullname;
+          $xhr2.done(function(data) {
+              if ($xhr2.status !== 200) {
+                  return;
+              }
 
-            let position2 = data.body.players[0].position;
+              let photoURL2 = data.body.players[0].photo;
 
-            let $pic2 = $('.pic2');
+              let fullName2 = data.body.players[0].fullname;
 
-            $pic2.attr("src", photoURL2);
-            $team2.remove();
-            $right.append(`<h5 class="name2">${fullName2}</h5>`);
-            randomPick();
-            createReset();
-        });
-    }
+              let position2 = data.body.players[0].position;
+
+              let $pic2 = $('.pic2');
+
+              $pic2.attr("src", photoURL2);
+              $team2.remove();
+              $right.append(`<h5 class="name2">${fullName2}</h5>`);
+              randomPick();
+              createReset();
+        })
+    });
+
+}
 
     function randomPick() {
         let pick = Math.random();
@@ -111,6 +112,5 @@
     }
 
     const $button = $('#getIt');
-    $button.click(getPhoto1);
-    $button.click(getPhoto2);
+    $button.click(getResults);
 })();
