@@ -19,5 +19,5 @@ The other function of this site is to help people decide who to pick in "Pick'Em
 ![Pick'em View](./img/pickem.png)
 
 
-
 This project uses the CBS sports api
+This used jquery and materialize.
