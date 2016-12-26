@@ -14,8 +14,11 @@ The other function of this site is to help people decide who to pick in "Pick'Em
 
 
 ![Home View](./img/home.png)
+
 ![Fantasy View](./img/fantasy.png)
+
 ![Fantasy View 2](./img/fantasy2.png)
+
 ![Pick'em View](./img/pickem.png)
 
 
